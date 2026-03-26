@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 interface AboutProps {
   credits: number;
@@ -8,7 +8,7 @@ interface AboutProps {
   onRunPredictionModels: () => void;
 }
 
-export default function About(props: AboutProps) {
+export default function About(_props: AboutProps) {
   return (
     <div style={{ padding: '2rem' }}>
       <div style={{

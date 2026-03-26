@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -15,7 +15,7 @@ type PageId = keyof typeof PAGE_MAPPING;
 function App() {
   const [currentPage, setCurrentPage] = useState<PageId>('home');
   const [credits, setCredits] = useState(100);
-  const [usageStats, setUsageStats] = useState({
+  const [, setUsageStats] = useState({
     imageAnalysis: 0,
     textProcessing: 0,
     predictions: 0
@@ -23,7 +23,7 @@ function App() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [canInstall, setCanInstall] = useState(false);
   const [showCategoryMenu, setShowCategoryMenu] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [, setSelectedCategory] = useState<string | null>(null);
 
   // Initialize PWA on mount
   useEffect(() => {
