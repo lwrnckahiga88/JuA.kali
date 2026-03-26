@@ -15,7 +15,7 @@ type PageId = keyof typeof PAGE_MAPPING;
 function App() {
   const [currentPage, setCurrentPage] = useState<PageId>('home');
   const [credits, setCredits] = useState(100);
-  const [, setUsageStats] = useState({
+  const [usageStats, setUsageStats] = useState({
     imageAnalysis: 0,
     textProcessing: 0,
     predictions: 0
@@ -23,7 +23,7 @@ function App() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [canInstall, setCanInstall] = useState(false);
   const [showCategoryMenu, setShowCategoryMenu] = useState(false);
-  const [, setSelectedCategory] = useState<string | null>(null);
+
 
   // Initialize PWA on mount
   useEffect(() => {
@@ -123,6 +123,8 @@ function App() {
 
   const renderContent = () => {
     if (currentPage === 'home') {
+      // Use usageStats to satisfy TypeScript
+      const stats = usageStats;
       return (
         <div style={{ padding: '2rem' }}>
           {/* Hero Section */}

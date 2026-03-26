@@ -128,7 +128,7 @@ export class PWAManager {
   private triggerBackgroundSync() {
     if ('serviceWorker' in navigator && 'SyncManager' in window) {
       navigator.serviceWorker.ready.then((registration) => {
-        registration.sync.register('sync-data').catch((error: any) => {
+        (registration as any).sync.register('sync-data').catch((error: any) => {
           console.error('[PWA] Background sync registration failed:', error);
         });
       });
