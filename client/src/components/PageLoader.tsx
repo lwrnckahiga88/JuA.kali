@@ -16,13 +16,6 @@ export default function PageLoader({ pageId, onClose }: PageLoaderProps) {
   useEffect(() => {
     setIsLoading(true);
     setError(null);
-
-    // Simulate loading delay
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-
-    return () => clearTimeout(timer);
   }, [pageId]);
 
   if (!config) {
@@ -107,6 +100,7 @@ export default function PageLoader({ pageId, onClose }: PageLoaderProps) {
 
       {htmlPath ? (
         <iframe
+          key={htmlPath}
           src={htmlPath}
           style={{
             width: '100%',

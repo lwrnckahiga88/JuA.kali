@@ -370,5 +370,5 @@ export function getAllPages(): PageConfig[] {
 export function getPageHtmlPath(pageId: string): string {
   const config = getPageConfig(pageId);
   if (!config) return '';
-  return config.htmlFile ? `/public/${config.htmlFile}` : '';
+  return config.htmlFile ? `/${config.htmlFile}` : '';
 }
